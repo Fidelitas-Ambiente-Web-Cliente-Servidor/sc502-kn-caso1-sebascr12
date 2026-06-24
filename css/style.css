@@ -3,18 +3,19 @@
      TODO: Podés cambiar estos valores para personalizar
      el tema de tu restaurante
   ─────────────────────────────────────────────── */
-  --color-primario:    #2C3E50;
-  --color-secundario:  #E67E22;
-  --color-fondo:       #FAF8F5;
-  --color-texto:       #333333;
-  --color-claro:       #FFFFFF;
-  --color-reserva-vip: #FFF3CD; /* fondo para grupos de 6+ personas */
+
+  /* mejor use la misma paleta de colores jaja */
+  --color-primario: #2C3E50;
+  --color-secundario: #E67E22;
+  --color-fondo: #FAF8F5;
+  --color-texto: #333333;
+  --color-claro: #FFFFFF;
+  --color-reserva-vip: #FFF3CD;
 
   --fuente-titulo: 'Playfair Display', serif;
   --fuente-cuerpo: 'Lato', sans-serif;
 }
 
-/* ─── RESET Y BASE ─── */
 * {
   margin: 0;
   padding: 0;
@@ -25,4 +26,150 @@ body {
   font-family: var(--fuente-cuerpo);
   background-color: var(--color-fondo);
   color: var(--color-texto);
+}
+
+
+/* cards del menu */
+.card-plato {
+  background-color: var(--color-claro);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* efecto al pasar el cursor */
+.card-plato:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(44, 62, 80, 0.15);
+}
+
+.card-plato .card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.card-plato .card-title {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card-plato .card-text {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.card-plato .precio-categoria {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+.card-plato .precio {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-secundario);
+}
+
+.card-plato .categoria-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: rgba(44, 62, 80, 0.1);
+  color: var(--color-primario);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+/* errores */
+.error-campo {
+  color: #d9534f;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  min-height: 1.25rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* filas de reservas en la tabla */
+.fila-reserva {
+  transition: background-color 0.2s ease;
+}
+
+/* resaltado vip */
+.fila-reserva.vip {
+  font-weight: 500;
+}
+
+.fila-reserva.vip td {
+  background-color: var(--color-reserva-vip) !important;
+}
+
+/* todas las reservas */
+.resumen-reservas {
+  background-color: #e9ecef;
+  border-left: 5px solid var(--color-primario);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+header {
+  background: linear-gradient(135deg, var(--color-primario) 0%, #1a252f 100%) !important;
+}
+
+header h1 {
+  font-family: var(--fuente-titulo);
+}
+
+.btn-outline-primary {
+  color: var(--color-primario);
+  border-color: var(--color-primario);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+  background-color: var(--color-primario) !important;
+  border-color: var(--color-primario) !important;
+  color: var(--color-claro) !important;
+}
+
+.btn-primary {
+  background-color: var(--color-secundario) !important;
+  border-color: var(--color-secundario) !important;
+}
+
+.btn-primary:hover {
+  background-color: #d35400 !important;
+  border-color: #d35400 !important;
+}
+
+.btn-primary:disabled {
+  background-color: #cccccc !important;
+  border-color: #cccccc !important;
+  color: #666666 !important;
+}
+
+input.is-invalid,
+select.is-invalid {
+  border-color: #d9534f !important;
+}
+
+input.is-valid,
+select.is-valid {
+  border-color: #2ecc71 !important;
 }
